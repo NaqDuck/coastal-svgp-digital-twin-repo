@@ -3,14 +3,14 @@
   "model_stage": "final_streaming_model",
   "beach_key": "bass",
   "beach_label": "Bass",
-  "project_root": "/Users/naqduck/Downloads/SVGP DT Fraim",
+  "project_root": ".",
   "paths": {
-    "noaa_csv": "/Users/naqduck/Downloads/SVGP DT Fraim/Datasets/Extracted/Bass CSV/NOAA_all_surveys_combined.csv",
-    "rtk_dir": "/Users/naqduck/Downloads/SVGP DT Fraim/Datasets/Sunday Data/Bass",
-    "out_dir": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3",
-    "initial_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_initial_model.npz",
-    "final_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_final_model.npz",
-    "survey_manifest": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/survey_manifest.csv"
+    "noaa_csv": "Datasets/Extracted/Bass CSV/NOAA_all_surveys_combined.csv",
+    "rtk_dir": "Datasets/Sunday Data/Bass",
+    "out_dir": "Models/BASS 3",
+    "initial_model": "Models/BASS 3/svgp_initial_model.npz",
+    "final_model": "Models/BASS 3/svgp_final_model.npz",
+    "survey_manifest": "Models/BASS 3/survey_manifest.csv"
   },
   "data": {
     "last_noaa_date": "2024-11-14",
@@ -103,27 +103,27 @@
     "pandas": "2.2.3"
   },
   "checkpoints": {
-    "initial_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_initial_model.npz",
+    "initial_model": "Models/BASS 3/svgp_initial_model.npz",
     "per_survey": [
       {
         "date": "2025-12-12",
         "file": "BASS_12-12-2025(TDS).csv",
-        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_after_2025-12-12_BASS_12-12-2025_TDS.npz",
+        "path": "Models/BASS 3/svgp_after_2025-12-12_BASS_12-12-2025_TDS.npz",
         "n_points": 143
       },
       {
         "date": "2026-02-10",
         "file": "BASS_02-10-2026(TDS).csv",
-        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_after_2026-02-10_BASS_02-10-2026_TDS.npz",
+        "path": "Models/BASS 3/svgp_after_2026-02-10_BASS_02-10-2026_TDS.npz",
         "n_points": 110
       },
       {
         "date": "2026-02-22",
         "file": "BASS_02-22-2026(TDS).csv",
-        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_after_2026-02-22_BASS_02-22-2026_TDS.npz",
+        "path": "Models/BASS 3/svgp_after_2026-02-22_BASS_02-22-2026_TDS.npz",
         "n_points": 154
       }
     ],
-    "final_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_final_model.npz"
+    "final_model": "Models/BASS 3/svgp_final_model.npz"
   }
 }

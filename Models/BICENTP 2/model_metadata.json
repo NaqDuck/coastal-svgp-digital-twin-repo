@@ -3,14 +3,14 @@
   "model_stage": "final_streaming_model",
   "beach_key": "bicentennial",
   "beach_label": "Bicentennial",
-  "project_root": "/Users/naqduck/Downloads/SVGP DT Fraim",
+  "project_root": ".",
   "paths": {
-    "noaa_csv": "/Users/naqduck/Downloads/SVGP DT Fraim/Datasets/Extracted/Bicent CSV/NOAA_all_surveys_combined.csv",
-    "rtk_dir": "/Users/naqduck/Downloads/SVGP DT Fraim/Datasets/Sunday Data/BicantP",
-    "out_dir": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2",
-    "initial_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_initial_model.npz",
-    "final_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_final_model.npz",
-    "survey_manifest": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/survey_manifest.csv"
+    "noaa_csv": "Datasets/Extracted/Bicent CSV/NOAA_all_surveys_combined.csv",
+    "rtk_dir": "Datasets/Sunday Data/BicantP",
+    "out_dir": "Models/BICENTP 2",
+    "initial_model": "Models/BICENTP 2/svgp_initial_model.npz",
+    "final_model": "Models/BICENTP 2/svgp_final_model.npz",
+    "survey_manifest": "Models/BICENTP 2/survey_manifest.csv"
   },
   "data": {
     "last_noaa_date": "2024-11-14",
@@ -104,33 +104,33 @@
     "pandas": "2.2.3"
   },
   "checkpoints": {
-    "initial_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_initial_model.npz",
+    "initial_model": "Models/BICENTP 2/svgp_initial_model.npz",
     "per_survey": [
       {
         "date": "2025-12-09",
         "file": "BICENP_12-09-2025(TDS).csv",
-        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2025-12-09_BICENP_12-09-2025_TDS.npz",
+        "path": "Models/BICENTP 2/svgp_after_2025-12-09_BICENP_12-09-2025_TDS.npz",
         "n_points": 48
       },
       {
         "date": "2026-02-15",
         "file": "BICENP_2-15-2026 (TDS).csv",
-        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2026-02-15_BICENP_2-15-2026_TDS.npz",
+        "path": "Models/BICENTP 2/svgp_after_2026-02-15_BICENP_2-15-2026_TDS.npz",
         "n_points": 113
       },
       {
         "date": "2026-03-01",
         "file": "BICENP_03-01-2026(TDS).csv",
-        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2026-03-01_BICENP_03-01-2026_TDS.npz",
+        "path": "Models/BICENTP 2/svgp_after_2026-03-01_BICENP_03-01-2026_TDS.npz",
         "n_points": 148
       },
       {
         "date": "2026-04-19",
         "file": "BICENTP_4-19-2026(TDS).csv",
-        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2026-04-19_BICENTP_4-19-2026_TDS.npz",
+        "path": "Models/BICENTP 2/svgp_after_2026-04-19_BICENTP_4-19-2026_TDS.npz",
         "n_points": 145
       }
     ],
-    "final_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_final_model.npz"
+    "final_model": "Models/BICENTP 2/svgp_final_model.npz"
   }
 }
