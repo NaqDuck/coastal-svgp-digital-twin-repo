@@ -1,0 +1,4 @@
+file,date,gap_days,n_points,MAE_m,RMSE_m,Bias_m,R2,heldout_mean_sigma_m,heldout_median_sigma_m,heldout_p90_sigma_m,heldout_pct_1s,heldout_pct_2s,metric_stage
+BASS_12-12-2025(TDS).csv,2025-12-12,393,143,0.4185,0.5053,-0.0776,0.7891,0.3534,0.3519,0.3596,46.2,80.4,heldout_before_update
+BASS_02-10-2026(TDS).csv,2026-02-10,60,110,0.307,0.3993,-0.2493,0.7627,0.2326,0.2309,0.2403,52.7,73.6,heldout_before_update
+BASS_02-22-2026(TDS).csv,2026-02-22,12,154,0.2035,0.2977,-0.0248,0.9556,0.2196,0.1872,0.3177,61.7,92.2,heldout_before_update

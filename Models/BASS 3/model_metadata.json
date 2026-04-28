@@ -1,0 +1,129 @@
+{
+  "created_utc": "2026-04-27T23:00:02+00:00",
+  "model_stage": "final_streaming_model",
+  "beach_key": "bass",
+  "beach_label": "Bass",
+  "project_root": "/Users/naqduck/Downloads/SVGP DT Fraim",
+  "paths": {
+    "noaa_csv": "/Users/naqduck/Downloads/SVGP DT Fraim/Datasets/Extracted/Bass CSV/NOAA_all_surveys_combined.csv",
+    "rtk_dir": "/Users/naqduck/Downloads/SVGP DT Fraim/Datasets/Sunday Data/Bass",
+    "out_dir": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3",
+    "initial_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_initial_model.npz",
+    "final_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_final_model.npz",
+    "survey_manifest": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/survey_manifest.csv"
+  },
+  "data": {
+    "last_noaa_date": "2024-11-14",
+    "n_noaa_points": 912815,
+    "rtk_files_discovered": [
+      "BASS_12-12-2025(TDS).csv",
+      "BASS_02-10-2026(TDS).csv",
+      "BASS_02-22-2026(TDS).csv"
+    ],
+    "latest_assimilated_date": "2026-02-22"
+  },
+  "features": {
+    "model_feature_order": [
+      "x_m",
+      "y_m",
+      "decimal_year"
+    ],
+    "rtk_feature_order": [
+      "x_m",
+      "y_m",
+      "dec_year"
+    ],
+    "target_column": "elevation_m"
+  },
+  "scaler": {
+    "class": "MinMaxScaler",
+    "feature_range": [
+      -1,
+      1
+    ],
+    "feature_order": [
+      "x_m",
+      "y_m",
+      "decimal_year"
+    ],
+    "domain_bounds": {
+      "x_m": {
+        "min": 191759.2837,
+        "max": 192231.5723
+      },
+      "y_m": {
+        "min": 559010.3378,
+        "max": 560113.5636
+      },
+      "decimal_year": {
+        "min": 1999.8,
+        "max": 2026.1424657534246
+      }
+    },
+    "data_min_": [
+      191759.2837,
+      559010.3378,
+      1999.8
+    ],
+    "data_max_": [
+      192231.5723,
+      560113.5636,
+      2026.1424657534246
+    ],
+    "data_range_": [
+      472.28859999999986,
+      1103.2258000000147,
+      26.342465753424676
+    ],
+    "scale_": [
+      0.0042346988684461165,
+      0.0018128655076775518,
+      0.07592303692147681
+    ],
+    "min_": [
+      -813.0428216984278,
+      -1014.4105598327967,
+      -152.83088923556932
+    ]
+  },
+  "hyperparameters": {
+    "target_h": 100,
+    "target_w": 150,
+    "m_inducing": 500,
+    "batch_size": 4096,
+    "train_steps": 3000,
+    "rtk_update_steps": 1000,
+    "random_seed": 42
+  },
+  "software": {
+    "python": "3.13.2",
+    "tensorflow": "2.21.0",
+    "gpflow": "2.10.0",
+    "numpy": "2.2.2",
+    "pandas": "2.2.3"
+  },
+  "checkpoints": {
+    "initial_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_initial_model.npz",
+    "per_survey": [
+      {
+        "date": "2025-12-12",
+        "file": "BASS_12-12-2025(TDS).csv",
+        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_after_2025-12-12_BASS_12-12-2025_TDS.npz",
+        "n_points": 143
+      },
+      {
+        "date": "2026-02-10",
+        "file": "BASS_02-10-2026(TDS).csv",
+        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_after_2026-02-10_BASS_02-10-2026_TDS.npz",
+        "n_points": 110
+      },
+      {
+        "date": "2026-02-22",
+        "file": "BASS_02-22-2026(TDS).csv",
+        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_after_2026-02-22_BASS_02-22-2026_TDS.npz",
+        "n_points": 154
+      }
+    ],
+    "final_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BASS 3/svgp_final_model.npz"
+  }
+}

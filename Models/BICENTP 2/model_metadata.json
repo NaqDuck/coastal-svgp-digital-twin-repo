@@ -1,0 +1,136 @@
+{
+  "created_utc": "2026-04-28T00:32:45+00:00",
+  "model_stage": "final_streaming_model",
+  "beach_key": "bicentennial",
+  "beach_label": "Bicentennial",
+  "project_root": "/Users/naqduck/Downloads/SVGP DT Fraim",
+  "paths": {
+    "noaa_csv": "/Users/naqduck/Downloads/SVGP DT Fraim/Datasets/Extracted/Bicent CSV/NOAA_all_surveys_combined.csv",
+    "rtk_dir": "/Users/naqduck/Downloads/SVGP DT Fraim/Datasets/Sunday Data/BicantP",
+    "out_dir": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2",
+    "initial_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_initial_model.npz",
+    "final_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_final_model.npz",
+    "survey_manifest": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/survey_manifest.csv"
+  },
+  "data": {
+    "last_noaa_date": "2024-11-14",
+    "n_noaa_points": 519276,
+    "rtk_files_discovered": [
+      "BICENP_12-09-2025(TDS).csv",
+      "BICENP_2-15-2026 (TDS).csv",
+      "BICENP_03-01-2026(TDS).csv",
+      "BICENTP_4-19-2026(TDS).csv"
+    ],
+    "latest_assimilated_date": "2026-04-19"
+  },
+  "features": {
+    "model_feature_order": [
+      "x_m",
+      "y_m",
+      "decimal_year"
+    ],
+    "rtk_feature_order": [
+      "x_m",
+      "y_m",
+      "dec_year"
+    ],
+    "target_column": "elevation_m"
+  },
+  "scaler": {
+    "class": "MinMaxScaler",
+    "feature_range": [
+      -1,
+      1
+    ],
+    "feature_order": [
+      "x_m",
+      "y_m",
+      "decimal_year"
+    ],
+    "domain_bounds": {
+      "x_m": {
+        "min": 193969.3929,
+        "max": 194269.7739
+      },
+      "y_m": {
+        "min": 554093.8278,
+        "max": 554758.8265
+      },
+      "decimal_year": {
+        "min": 1999.8,
+        "max": 2026.295890410959
+      }
+    },
+    "data_min_": [
+      193969.3929,
+      554093.8278,
+      1999.8
+    ],
+    "data_max_": [
+      194269.7739,
+      554758.8265,
+      2026.295890410959
+    ],
+    "data_range_": [
+      300.38099999999395,
+      664.9986999999965,
+      26.495890410958964
+    ],
+    "scale_": [
+      0.006658210739028235,
+      0.003007524676364045,
+      0.07548340399131406
+    ],
+    "min_": [
+      -1292.489094849567,
+      -1667.45086012951,
+      -151.95171130182985
+    ]
+  },
+  "hyperparameters": {
+    "target_h": 100,
+    "target_w": 150,
+    "m_inducing": 500,
+    "batch_size": 4096,
+    "train_steps": 3000,
+    "rtk_update_steps": 1000,
+    "random_seed": 42
+  },
+  "software": {
+    "python": "3.13.2",
+    "tensorflow": "2.21.0",
+    "gpflow": "2.10.0",
+    "numpy": "2.2.2",
+    "pandas": "2.2.3"
+  },
+  "checkpoints": {
+    "initial_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_initial_model.npz",
+    "per_survey": [
+      {
+        "date": "2025-12-09",
+        "file": "BICENP_12-09-2025(TDS).csv",
+        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2025-12-09_BICENP_12-09-2025_TDS.npz",
+        "n_points": 48
+      },
+      {
+        "date": "2026-02-15",
+        "file": "BICENP_2-15-2026 (TDS).csv",
+        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2026-02-15_BICENP_2-15-2026_TDS.npz",
+        "n_points": 113
+      },
+      {
+        "date": "2026-03-01",
+        "file": "BICENP_03-01-2026(TDS).csv",
+        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2026-03-01_BICENP_03-01-2026_TDS.npz",
+        "n_points": 148
+      },
+      {
+        "date": "2026-04-19",
+        "file": "BICENTP_4-19-2026(TDS).csv",
+        "path": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2026-04-19_BICENTP_4-19-2026_TDS.npz",
+        "n_points": 145
+      }
+    ],
+    "final_model": "/Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_final_model.npz"
+  }
+}

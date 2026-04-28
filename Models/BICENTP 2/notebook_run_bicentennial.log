@@ -1,0 +1,402 @@
+Executing notebook: /Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb
+Working directory : /Users/naqduck/Downloads/SVGP DT Fraim
+Log path          : /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/notebook_run_bicentennial.log
+
+================================================================================
+RUNNING CODE CELL 2
+================================================================================
+Core notebook dependencies are available.
+FINISHED CODE CELL 2 in 0.0s
+
+================================================================================
+RUNNING CODE CELL 3
+================================================================================
+Matplotlib is building the font cache; this may take a moment.
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/gpflow/versions.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+TensorFlow : 2.21.0
+GPflow     : 2.10.0
+NumPy      : 2.2.2
+FINISHED CODE CELL 3 in 18.0s
+
+================================================================================
+RUNNING CODE CELL 4
+================================================================================
+Project root: /Users/naqduck/Downloads/SVGP DT Fraim
+Beach: Bicentennial
+NOAA CSV: /Users/naqduck/Downloads/SVGP DT Fraim/Datasets/Extracted/Bicent CSV/NOAA_all_surveys_combined.csv
+RTK dir: /Users/naqduck/Downloads/SVGP DT Fraim/Datasets/Sunday Data/BicantP
+Output dir: /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2
+FINISHED CODE CELL 4 in 0.0s
+
+================================================================================
+RUNNING CODE CELL 5
+================================================================================
+Loading Bicentennial NOAA CSV ...
+  519,276 valid NOAA points
+  Survey dates found:
+    1999-10-20  →  1999.800000
+    2004-06-28  →  2004.489071
+    2004-12-01  →  2004.915301
+    2006-01-08  →  2006.019178
+    2006-03-05  →  2006.172603
+    2010-05-25  →  2010.394521
+    2016-06-19  →  2016.464481
+    2016-10-31  →  2016.830601
+    2017-10-06  →  2017.761644
+    2018-12-22  →  2018.972603
+    2019-04-09  →  2019.268493
+    2022-04-13  →  2022.279452
+    2022-11-25  →  2022.898630
+    2024-11-14  →  2024.868852
+
+  N_NOAA = 519,276  (used for NOAA SVGP num_data)
+FINISHED CODE CELL 5 in 0.6s
+
+================================================================================
+RUNNING CODE CELL 6
+================================================================================
+Found 4 RTK file(s):
+  2025-12-09  ←  BICENP_12-09-2025(TDS).csv
+  2026-02-15  ←  BICENP_2-15-2026 (TDS).csv
+  2026-03-01  ←  BICENP_03-01-2026(TDS).csv
+  2026-04-19  ←  BICENTP_4-19-2026(TDS).csv
+
+  RTK temporal range max : 2026.295890
+RTK loader helpers and date discovery complete.
+FINISHED CODE CELL 6 in 0.0s
+
+================================================================================
+RUNNING CODE CELL 7
+================================================================================
+  X_raw : (519276, 3)  (x_m | y_m | decimal_year)
+  Y     : (519276, 1)  (elevation_m)
+
+  Raw ranges:
+    x_m          [193969.4, 194269.8]
+    y_m          [554093.8, 554758.8]
+    decimal_year [1999.8000, 2024.8689]
+
+  Explicit domain bounds:
+    x_m          [193969.4, 194269.8]
+    y_m          [554093.8, 554758.8]
+    decimal_year [1999.800000, 2026.295890]  (extended to RTK max)
+
+  Scaled ranges (should be within [-1, +1] for NOAA):
+    x_s [-1.000, 1.000]
+    y_s [-1.000, 1.000]
+    t_s [-1.000, 0.892]
+
+  Scaler fit on explicit domain bounds.
+  RTK dates will scale to within [-1, +1] by construction.
+FINISHED CODE CELL 7 in 0.0s
+
+================================================================================
+RUNNING CODE CELL 8
+================================================================================
+  Grids built: (14, 100, 150)  (all on common 100×150 grid)
+  Spatial extent: x=[193969.4, 194269.8]  y=[554093.8, 554758.8]
+FINISHED CODE CELL 8 in 0.1s
+
+================================================================================
+RUNNING CODE CELL 9
+================================================================================
+TF dataset pipeline ready.
+FINISHED CODE CELL 9 in 0.1s
+
+================================================================================
+RUNNING CODE CELL 10
+================================================================================
+
+Model summary:
+╒═════════════════════════════════════╤═══════════╤══════════════════╤═════════╤═════════════╤═══════════════╤═════════╤══════════════════════════════════════════╕
+│ name                                │ class     │ transform        │ prior   │ trainable   │ shape         │ dtype   │ value                                    │
+╞═════════════════════════════════════╪═══════════╪══════════════════╪═════════╪═════════════╪═══════════════╪═════════╪══════════════════════════════════════════╡
+│ SVGP.kernel.kernels[0].variance     │ Parameter │ Softplus         │         │ True        │ ()            │ float64 │ 1.0                                      │
+├─────────────────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼───────────────┼─────────┼──────────────────────────────────────────┤
+│ SVGP.kernel.kernels[0].lengthscales │ Parameter │ Softplus         │         │ True        │ ()            │ float64 │ 1.0                                      │
+├─────────────────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼───────────────┼─────────┼──────────────────────────────────────────┤
+│ SVGP.kernel.kernels[1].variance     │ Parameter │ Softplus         │         │ True        │ ()            │ float64 │ 1.0                                      │
+├─────────────────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼───────────────┼─────────┼──────────────────────────────────────────┤
+│ SVGP.kernel.kernels[1].lengthscales │ Parameter │ Softplus         │         │ True        │ ()            │ float64 │ 1.0                                      │
+├─────────────────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼───────────────┼─────────┼──────────────────────────────────────────┤
+│ SVGP.likelihood.variance            │ Parameter │ Softplus + Shift │         │ True        │ ()            │ float64 │ 1.0                                      │
+├─────────────────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼───────────────┼─────────┼──────────────────────────────────────────┤
+│ SVGP.inducing_variable.Z            │ Parameter │ Identity         │         │ True        │ (500, 3)      │ float64 │ [[0.41248148, -0.37779307, 0.35580603... │
+├─────────────────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼───────────────┼─────────┼──────────────────────────────────────────┤
+│ SVGP.q_mu                           │ Parameter │ Identity         │         │ True        │ (500, 1)      │ float64 │ [[0....                                  │
+├─────────────────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼───────────────┼─────────┼──────────────────────────────────────────┤
+│ SVGP.q_sqrt                         │ Parameter │ FillTriangular   │         │ True        │ (1, 500, 500) │ float64 │ [[[1., 0., 0....                         │
+╘═════════════════════════════════════╧═══════════╧══════════════════╧═════════╧═════════════╧═══════════════╧═════════╧══════════════════════════════════════════╛
+
+  num_data = 519276  (NOAA training stage)
+FINISHED CODE CELL 10 in 0.1s
+
+================================================================================
+RUNNING CODE CELL 11
+================================================================================
+Initial training on NOAA data ...
+WARNING:tensorflow:AutoGraph could not transform <function noaa_training_step at 0x1259525c0> and will run it as-is.
+Cause: Unable to locate the source code of <function noaa_training_step at 0x1259525c0>. Note that functions defined in certain environments, like the interactive Python shell, do not expose their source code. If that is the case, you should define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.experimental.do_not_convert. Original error: could not get source code
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+  Step    0   ELBO: -3178230.81
+  Step  200   ELBO: -539145.63
+  Step  400   ELBO: -388961.41
+  Step  600   ELBO: -193982.86
+  Step  800   ELBO: -140690.16
+  Step 1000   ELBO: -187365.96
+  Step 1200   ELBO: -39601.40
+  Step 1400   ELBO: -187795.82
+  Step 1600   ELBO: -101191.36
+  Step 1800   ELBO: 4805.91
+  Step 2000   ELBO: -77975.60
+  Step 2200   ELBO: -172303.96
+  Step 2400   ELBO: -109013.44
+  Step 2600   ELBO: -1946.16
+  Step 2800   ELBO: -93294.77
+NOAA training complete.
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell11:36: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+FINISHED CODE CELL 11 in 405.4s
+
+================================================================================
+RUNNING CODE CELL 12
+================================================================================
+Saving initial trained model ...
+  Model saved → /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_initial_model.npz
+FINISHED CODE CELL 12 in 0.0s
+
+================================================================================
+RUNNING CODE CELL 13
+================================================================================
+predict_scaled() helper defined.
+FINISHED CODE CELL 13 in 0.0s
+
+================================================================================
+RUNNING CODE CELL 14
+================================================================================
+validate_model() helper defined.
+FINISHED CODE CELL 14 in 0.0s
+
+================================================================================
+RUNNING CODE CELL 15
+================================================================================
+Processing 4 RTK file(s) — chronological order:
+  2025-12-09  ←  BICENP_12-09-2025(TDS).csv
+  2026-02-15  ←  BICENP_2-15-2026 (TDS).csv
+  2026-03-01  ←  BICENP_03-01-2026(TDS).csv
+  2026-04-19  ←  BICENTP_4-19-2026(TDS).csv
+
+============================================================
+Processing: BICENP_12-09-2025(TDS).csv
+============================================================
+  Date     : 2025-12-09
+  Gap      : 390 days since previous survey
+  N points : 48
+
+  [A] Validating (held-out) ...
+      MAE  = 0.2831 m
+      RMSE = 0.3296 m
+      Bias = -0.1114 m
+      R²   = 0.2980
+      Held-out mean σ = 0.2821 m
+      Grid mean σ before update = 0.5345 m
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell15:164: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+
+  [B] Updating model (1000 steps) ...
+      RTK ELBO num_data = 48 (restoring NOAA num_data after update)
+WARNING:tensorflow:AutoGraph could not transform <function make_rtk_update_fn.<locals>._step at 0x12610a5c0> and will run it as-is.
+Cause: Unable to locate the source code of <function make_rtk_update_fn.<locals>._step at 0x12610a5c0>. Note that functions defined in certain environments, like the interactive Python shell, do not expose their source code. If that is the case, you should define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.experimental.do_not_convert. Original error: could not get source code
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+      Update step    0   ELBO: -1443.43
+      Update step  200   ELBO: -990.04
+      Update step  400   ELBO: -783.03
+      Update step  600   ELBO: -632.41
+      Update step  800   ELBO: -515.40
+  Model updated with 2025-12-09 RTK data.
+  Model saved → /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2025-12-09_BICENP_12-09-2025_TDS.npz
+      Grid mean σ after update  = 0.9691 m
+      Grid mean σ reduction     = -0.4347 m
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell15:266: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+
+============================================================
+Processing: BICENP_2-15-2026 (TDS).csv
+============================================================
+  Date     : 2026-02-15
+  Gap      : 67 days since previous survey
+  N points : 113
+
+  [A] Validating (held-out) ...
+      MAE  = 0.8949 m
+      RMSE = 1.2665 m
+      Bias = +0.8080 m
+      R²   = -0.1145
+      Held-out mean σ = 0.2136 m
+      Grid mean σ before update = 0.9698 m
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell15:164: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+
+  [B] Updating model (1000 steps) ...
+      RTK ELBO num_data = 113 (restoring NOAA num_data after update)
+WARNING:tensorflow:AutoGraph could not transform <function make_rtk_update_fn.<locals>._step at 0x126c00b80> and will run it as-is.
+Cause: Unable to locate the source code of <function make_rtk_update_fn.<locals>._step at 0x126c00b80>. Note that functions defined in certain environments, like the interactive Python shell, do not expose their source code. If that is the case, you should define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.experimental.do_not_convert. Original error: could not get source code
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+      Update step    0   ELBO: -3875.53
+      Update step  200   ELBO: -360.57
+      Update step  400   ELBO: -296.25
+      Update step  600   ELBO: -246.55
+      Update step  800   ELBO: -205.55
+  Model updated with 2026-02-15 RTK data.
+  Model saved → /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2026-02-15_BICENP_2-15-2026_TDS.npz
+      Grid mean σ after update  = 1.0888 m
+      Grid mean σ reduction     = -0.1190 m
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell15:266: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+
+============================================================
+Processing: BICENP_03-01-2026(TDS).csv
+============================================================
+  Date     : 2026-03-01
+  Gap      : 14 days since previous survey
+  N points : 148
+
+  [A] Validating (held-out) ...
+      MAE  = 0.2826 m
+      RMSE = 0.3601 m
+      Bias = -0.1154 m
+      R²   = 0.9218
+      Held-out mean σ = 0.2080 m
+      Grid mean σ before update = 1.0889 m
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell15:164: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+
+  [B] Updating model (1000 steps) ...
+      RTK ELBO num_data = 148 (restoring NOAA num_data after update)
+WARNING:tensorflow:AutoGraph could not transform <function make_rtk_update_fn.<locals>._step at 0x126c00cc0> and will run it as-is.
+Cause: Unable to locate the source code of <function make_rtk_update_fn.<locals>._step at 0x126c00cc0>. Note that functions defined in certain environments, like the interactive Python shell, do not expose their source code. If that is the case, you should define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.experimental.do_not_convert. Original error: could not get source code
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+      Update step    0   ELBO: -484.38
+      Update step  200   ELBO: -132.66
+      Update step  400   ELBO: -107.33
+      Update step  600   ELBO: -87.31
+      Update step  800   ELBO: -70.77
+  Model updated with 2026-03-01 RTK data.
+  Model saved → /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2026-03-01_BICENP_03-01-2026_TDS.npz
+      Grid mean σ after update  = 1.0431 m
+      Grid mean σ reduction     = +0.0458 m
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell15:266: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+
+============================================================
+Processing: BICENTP_4-19-2026(TDS).csv
+============================================================
+  Date     : 2026-04-19
+  Gap      : 49 days since previous survey
+  N points : 145
+
+  [A] Validating (held-out) ...
+      MAE  = 0.2123 m
+      RMSE = 0.2775 m
+      Bias = -0.1322 m
+      R²   = 0.9505
+      Held-out mean σ = 0.1812 m
+      Grid mean σ before update = 1.0433 m
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell15:164: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+
+  [B] Updating model (1000 steps) ...
+      RTK ELBO num_data = 145 (restoring NOAA num_data after update)
+WARNING:tensorflow:AutoGraph could not transform <function make_rtk_update_fn.<locals>._step at 0x1273663e0> and will run it as-is.
+Cause: Unable to locate the source code of <function make_rtk_update_fn.<locals>._step at 0x1273663e0>. Note that functions defined in certain environments, like the interactive Python shell, do not expose their source code. If that is the case, you should define them in a .py source file. If you are certain the code is graph-compatible, wrap the call using @tf.autograph.experimental.do_not_convert. Original error: could not get source code
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+      Update step    0   ELBO: -217.24
+      Update step  200   ELBO: -36.06
+      Update step  400   ELBO: -23.73
+      Update step  600   ELBO: -14.33
+      Update step  800   ELBO: -6.41
+  Model updated with 2026-04-19 RTK data.
+  Model saved → /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2026-04-19_BICENTP_4-19-2026_TDS.npz
+      Grid mean σ after update  = 1.2587 m
+      Grid mean σ reduction     = -0.2154 m
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell15:266: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+
+Saving final streaming model state and run records ...
+  Model saved → /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_final_model.npz
+  Survey manifest saved → /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/survey_manifest.csv
+  Run metadata saved → /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/model_metadata.json
+FINISHED CODE CELL 15 in 78.4s
+
+================================================================================
+RUNNING CODE CELL 16
+================================================================================
+
+=== RTK Validation Summary (held-out, before each update) ===
+      date  gap_days  n_points  MAE_m  RMSE_m  Bias_m      R2
+2025-12-09       390        48 0.2831  0.3296 -0.1114  0.2980
+2026-02-15        67       113 0.8949  1.2665  0.8080 -0.1145
+2026-03-01        14       148 0.2826  0.3601 -0.1154  0.9218
+2026-04-19        49       145 0.2123  0.2775 -0.1322  0.9505
+
+  Overall MAE  = 0.4126 m
+  Overall RMSE = 0.6911 m
+  Overall Bias = +0.1095 m
+  Overall R²   = 0.7093
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell16:40: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+
+=== Bias Log ===
+  2025-12-09  bias=-0.1114m  gap=390d  rate=0.000286 m/day  (0.0040 m/2weeks)
+  2026-02-15  bias=+0.8080m  gap=67d  rate=0.012060 m/day  (0.1688 m/2weeks)
+  2026-03-01  bias=-0.1154m  gap=14d  rate=0.008243 m/day  (0.1154 m/2weeks)
+  2026-04-19  bias=-0.1322m  gap=49d  rate=0.002698 m/day  (0.0378 m/2weeks)
+FINISHED CODE CELL 16 in 0.1s
+
+================================================================================
+RUNNING CODE CELL 17
+================================================================================
+
+Building prediction surface for latest assimilated epoch ...
+  Prediction date : 2026-04-19 (latest RTK update)
+  Decimal year    : 2026.298033
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell17:62: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+FINISHED CODE CELL 17 in 0.4s
+
+================================================================================
+RUNNING CODE CELL 18
+================================================================================
+
+=== Uncertainty Calibration  [held-out predict_y] ===
+  Percent within ±1σ  = 45.6%  (ideal ≈ 68%)
+  Percent within ±2σ  = 73.6%  (ideal ≈ 95%)
+  Mean σ (sharpness)  = 0.2087 m
+  Std(norm residual)  = 2.704  (ideal ≈ 1)
+
+  NOTE: stats measured BEFORE each RTK update — genuine held-out.
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell18:47: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+FINISHED CODE CELL 18 in 0.2s
+
+================================================================================
+RUNNING CODE CELL 19
+================================================================================
+
+=== Streaming Update Impact and Forecast Staleness ===
+
+--- Streaming Update Impact ---
+      date  gap_days  n_points  heldout_MAE_m  heldout_RMSE_m  heldout_Bias_m  heldout_R2  heldout_mean_sigma_m  grid_mean_sigma_before_m  grid_mean_sigma_after_m  grid_sigma_reduction_m  grid_sigma_reduction_pct                                                                                 checkpoint_after_update              update_stage
+2025-12-09       390        48         0.2831          0.3296         -0.1114      0.2980                0.2821                    0.5345                   0.9691                 -0.4347                    -81.33 /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2025-12-09_BICENP_12-09-2025_TDS.npz after_update_checkpointed
+2026-02-15        67       113         0.8949          1.2665          0.8080     -0.1145                0.2136                    0.9698                   1.0888                 -0.1190                    -12.27  /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2026-02-15_BICENP_2-15-2026_TDS.npz after_update_checkpointed
+2026-03-01        14       148         0.2826          0.3601         -0.1154      0.9218                0.2080                    1.0889                   1.0431                  0.0458                      4.20 /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2026-03-01_BICENP_03-01-2026_TDS.npz after_update_checkpointed
+2026-04-19        49       145         0.2123          0.2775         -0.1322      0.9505                0.1812                    1.0433                   1.2587                 -0.2154                    -20.64 /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/svgp_after_2026-04-19_BICENTP_4-19-2026_TDS.npz after_update_checkpointed
+
+Saved update-impact table -> /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/streaming_update_impact.csv
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell19:79: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+Saved update-impact plot -> /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/streaming_update_impact.png
+
+--- Forecast Staleness From Final Streaming Model ---
+          model_stage reference_date  eval_date  days_after_update  decimal_year  mean_sigma_m  median_sigma_m  p90_sigma_m  min_sigma_m  max_sigma_m
+final_streaming_model     2026-04-19 2026-04-19                  0   2026.295890        1.2587          1.3745       2.0071       0.1597       2.2237
+final_streaming_model     2026-04-19 2026-05-03                 14   2026.334247        1.2587          1.3745       2.0072       0.1598       2.2237
+final_streaming_model     2026-04-19 2026-05-19                 30   2026.378082        1.2588          1.3745       2.0072       0.1600       2.2237
+final_streaming_model     2026-04-19 2026-06-18                 60   2026.460274        1.2590          1.3745       2.0073       0.1609       2.2237
+final_streaming_model     2026-04-19 2026-07-18                 90   2026.542466        1.2593          1.3747       2.0074       0.1624       2.2238
+
+Saved forecast-staleness table -> /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/forecast_staleness_summary.csv
+/Users/naqduck/Downloads/SVGP DT Fraim/Codes/Streaming SVGP Shared.ipynb:cell19:126: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+Saved forecast-staleness plot -> /Users/naqduck/Downloads/SVGP DT Fraim/Models/BICENTP 2/forecast_staleness.png
+FINISHED CODE CELL 19 in 1.4s
+
+Notebook execution complete.
+Total runtime: 8.41 min

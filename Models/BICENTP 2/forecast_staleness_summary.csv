@@ -1,0 +1,6 @@
+model_stage,reference_date,eval_date,days_after_update,decimal_year,mean_sigma_m,median_sigma_m,p90_sigma_m,min_sigma_m,max_sigma_m
+final_streaming_model,2026-04-19,2026-04-19,0,2026.29589,1.2587,1.3745,2.0071,0.1597,2.2237
+final_streaming_model,2026-04-19,2026-05-03,14,2026.334247,1.2587,1.3745,2.0072,0.1598,2.2237
+final_streaming_model,2026-04-19,2026-05-19,30,2026.378082,1.2588,1.3745,2.0072,0.16,2.2237
+final_streaming_model,2026-04-19,2026-06-18,60,2026.460274,1.259,1.3745,2.0073,0.1609,2.2237
+final_streaming_model,2026-04-19,2026-07-18,90,2026.542466,1.2593,1.3747,2.0074,0.1624,2.2238
